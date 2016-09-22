@@ -1,11 +1,10 @@
-STRENGTHS_UNSORTED=()
 read NUMBER_OF_HORSES
+
+STRENGTHS_UNSORTED=()
 for (( I=0; I<NUMBER_OF_HORSES; I++ )); do
     read STRENGTH
     STRENGTHS_UNSORTED[$I]=$STRENGTH
 done
-
-# Sort the array
 STRENGTHS=( $( printf '%s\n' "${STRENGTHS_UNSORTED[@]}" | sort -n ) )
 
 MIN_DIFFERENCE=10000000
