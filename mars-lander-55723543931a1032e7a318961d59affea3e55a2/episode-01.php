@@ -2,8 +2,7 @@
 fscanf(STDIN, "%d",
     $surfaceN // the number of points used to draw the surface of Mars.
 );
-for ($i = 0; $i < $surfaceN; $i++)
-{
+for ($i = 0; $i < $surfaceN; $i++) {
     fscanf(STDIN, "%d %d",
         $landX, // X coordinate of a surface point. (0 to 6999)
         $landY // Y coordinate of a surface point. By linking all the points together in a sequential fashion, you form the surface of Mars.
@@ -29,29 +28,11 @@ while (TRUE)
         $power // the thrust power (0 to 4).
     );
 
-    
-    error_log(print_r(array(
-        'x' => $X,
-        'y' => $Y,
-        'x_speed' => $hSpeed,
-        'y_speed' => $vSpeed,
-        'fuel' => $fuel,
-        'rotate' => $rotate,
-        'power' => $power
-    ), 1));
-    
-    if (abs($vSpeed) > $maxVerticalSpeed) {
+    if (abs($vSpeed) > ($maxVerticalSpeed - 1)) {
         $power = 4;
-    } else if (abs($vSpeed) > $maxVerticalSpeed / 2) {
-        $power = 3;
-    } else if (abs($vSpeed) > $maxVerticalSpeed / 3) {
-        $power = 2;
-    } else { 
+    } else {
         $power = 0;
     }
-    
-    // 2 integers: rotate power. rotate is the desired rotation angle (should be 0 for level 1), 
-    // power is the desired thrust power (0 to 4).
+
     echo("$rotate $power\n");
 }
-?>
