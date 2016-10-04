@@ -32,14 +32,6 @@ for ($i = 0; $i < $numExitGateways; $i++)
     $exitNodes[] = $EI;
 }
 
-error_log(print_r(array(
-    'num_nodes' => $numNodes,
-    'num_links' => $numLinks,
-    'num_exit_gateways' => $numExitGateways,
-    'nodes' => $nodes,
-    'exit_nodes' => $exitNodes
-), 1));
-
 $trimmedNodes = null;
 while (TRUE)
 {
